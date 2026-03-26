@@ -1,13 +1,3 @@
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  font-family: Verdana, sans-serif;
-  overflow-y: auto; /* permite scroll */
-  background: #000; /* fallback caso o pseudo-elemento falhe */
-}
-
-/* Fundo arco-íris usando pseudo-elemento */
 body::before {
   content: "";
   position: fixed;
@@ -27,9 +17,7 @@ body::before {
   z-index: -1;
 }
 
-/* =========================
-   TEXTO
-========================= */
+
 h1 {
   color: #fff;
   text-align: center;
@@ -45,21 +33,21 @@ p {
   color: #fff;
 }
 
-/* =========================
-   IMAGEM CENTRAL
-========================= */
+
 .foto-centro {
-  position: fixed;
+  display: block;          
+  margin: 20px auto;
+  width: 200px;        
+  max-width: 90%; 
+  height: auto;              
+  position: fixed;          
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 200px;
   z-index: 2;
 }
 
-/* =========================
-   IMAGENS CAINDO
-========================= */
+
 .foto-caindo {
   position: absolute;
   width: 80px;
@@ -67,22 +55,20 @@ p {
   animation: cair 5s linear infinite;
 }
 
-/* posições das imagens caindo */
+
 .f1 { left: 20%; animation-delay: 0s; }
 .f2 { left: 30%; animation-delay: 1s; }
 .f3 { left: 70%; animation-delay: 2s; }
 .f4 { left: 80%; animation-delay: 3s; }
 .f5 { left: 50%; animation-delay: 1.5s; }
 
-/* animação de queda */
+
 @keyframes cair {
   from { top: -100px; transform: rotate(0deg); }
   to { top: 100vh; transform: rotate(360deg); }
 }
 
-/* =========================
-   RESPONSIVO MOBILE
-========================= */
+
 @media (max-width: 600px) {
 
   h1 {
@@ -95,19 +81,19 @@ p {
     margin: 10px 10px;
   }
 
-  /* Imagem central ajustada */
   .foto-centro {
-    position: relative;  /* não bloqueia o texto */
-    display: block;
-    margin: 20px auto;
-    width: 120px;
+    position: relative;       
+    top: auto;
+    left: auto;
     transform: none;
+    width: 120px;             
+    margin: 20px auto;        
   }
 
-  /* Imagens caindo menores */
+
   .foto-caindo {
     width: 40px;
     top: -50px;
-    opacity: 0.4;  /* menos intrusiva */
+    opacity: 0.4;
   }
 }
