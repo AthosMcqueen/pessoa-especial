@@ -1,14 +1,19 @@
 body {
-  /* Fundo rosa com textura de bolinhas leves e gradiente */
-  background: 
-    radial-gradient(rgba(255, 255, 255, 0.15) 2px, transparent 2px),
-    linear-gradient(135deg, rgb(255, 105, 180), rgb(255, 21, 204));
-  background-size: 40px 40px, cover;
+  /* Degradê horizontal com as cores da bandeira LGBT */
+  background: linear-gradient(
+    to right,
+    #e40303,  /* vermelho */
+    #ff8c00,  /* laranja */
+    #ffed00,  /* amarelo */
+    #008026,  /* verde */
+    #004dff,  /* azul */
+    #750787   /* roxo */
+  );
   overflow: hidden; /* evita barra de rolagem */
 }
 
 h1 {
-  color: rgb(255, 0, 149); 
+  color: #fff; /* cor branca para contraste */
   text-align: center;
 }
 
