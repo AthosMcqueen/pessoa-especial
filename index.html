@@ -21,23 +21,20 @@
 
 		<p>Assinado: Athos Silvano Lopes de Souza</p>
 
-    <!-- BOTÃO PARA TOCAR ÁUDIO -->
-    <button onclick="tocarMusica()" style="display:block; margin:20px auto; padding:10px 20px; font-size:16px;">
-      🎵 Tocar música
-    </button>
-
-    
     <audio id="musica" loop>
-      <source src="Gloria Gaynor i will survive Lyrics.mp3" type="audio/mpeg">
-      
-    </audio>
+  <source src="Gloria Gaynor i will survive Lyrics.mp3"" type="audio/mpeg">
+</audio>
 
-    
-    <script>
-      function tocarMusica() {
-        document.getElementById("musica").play();
-      }
-    </script>
+<script>
+  function iniciarAudio() {
+    const audio = document.getElementById("musica");
+    audio.play();
+    document.removeEventListener("click", iniciarAudio);
+  }
+
+  document.addEventListener("click", iniciarAudio);
+</script>
+      
 
     <!-- imagem central -->
     <img src="img/samuca3.png" class="foto-centro">
