@@ -1,25 +1,40 @@
 body {
-  /* Degradê horizontal com as cores da bandeira LGBT */
-  background: linear-gradient(
-    to right,
-    #e40303,  /* vermelho */
-    #ff8c00,  /* laranja */
-    #ffed00,  /* amarelo */
-    #008026,  /* verde */
-    #004dff,  /* azul */
-    #750787   /* roxo */
-  );
-  overflow: hidden; /* evita barra de rolagem */
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: verdana, sans-serif;
 }
 
+/* Faixas horizontais da bandeira LGBT usando pseudo-elementos */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    #e40303 0% 16.66%,   /* vermelho */
+    #ff8c00 16.66% 33.33%, /* laranja */
+    #ffed00 33.33% 50%,    /* amarelo */
+    #008026 50% 66.66%,    /* verde */
+    #004dff 66.66% 83.33%, /* azul */
+    #750787 83.33% 100%    /* roxo */
+  );
+  z-index: -1; /* garante que o fundo fique atrás do conteúdo */
+}
+
+/* Texto e elementos continuam visíveis */
 h1 {
-  color: #fff; /* cor branca para contraste */
+  color: #fff;
   text-align: center;
 }
 
 p {
-  font-family: verdana;
   font-size: 20px;
+  text-align: center;
 }
 
 /* IMAGEM CENTRAL */
@@ -40,7 +55,7 @@ p {
   animation: cair 5s linear infinite;
 }
 
-/* posições em círculo (lado esquerdo e direito) */
+/* posições das imagens caindo */
 .f1 { left: 20%; animation-delay: 0s; }
 .f2 { left: 30%; animation-delay: 1s; }
 .f3 { left: 70%; animation-delay: 2s; }
@@ -49,12 +64,6 @@ p {
 
 /* animação de queda */
 @keyframes cair {
-  from {
-    top: -100px;
-    transform: rotate(0deg);
-  }
-  to {
-    top: 100vh;
-    transform: rotate(360deg);
-  }
+  from { top: -100px; transform: rotate(0deg); }
+  to { top: 100vh; transform: rotate(360deg); }
 }
